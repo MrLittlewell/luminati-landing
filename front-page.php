@@ -1,10 +1,10 @@
 <?php 
 get_header();
-
-$slider = get_field('main-slider', 14);
-$advantages_block = get_field('advantages_block', 14);
-$ordering_procedure = get_field('ordering_procedure', 14);
-$promo_block= get_field('promo_block', 14);
+$pageId = 29;
+$slider = get_field('main-slider', $pageId);
+$advantages = get_field('advantages_block', $pageId);
+$ordering = get_field('ordering_procedure', $pageId);
+$promo_block= get_field('promo_block', $pageId);
 ?>
 <main>
     <section id="front-slider">
@@ -80,11 +80,11 @@ $promo_block= get_field('promo_block', 14);
         <div class="ordering-procedure">
             <?php foreach ($ordering['description_of_ordering_procedure'] as $order) : ?>
             <div class="order-item">
-                <p><?= $order['headline'] ?></p>
+                <p class="headline"><?= $order['headline'] ?></p>
                 <?php if ($order['image']) : ?>
                 <img src="<?= $order['image']['url'] ?>" alt="">
                 <?php endif; ?>
-                <p><?= $order['description'] ?></p>
+                <p class="description"><?= $order['description'] ?></p>
             </div>
 
             <?php endforeach; ?>
@@ -97,19 +97,19 @@ $promo_block= get_field('promo_block', 14);
             <?= $promo_block['display_position'] ? 'promo-block-wrapper__' . $promo_block['display_position'] : '' ?>">
                 <div class="promo-block-left">
                     <div class="promo-block-left-content">
-                      <?= $promo_block['headline'] ?? '' ?>
+                        <?= $promo_block['headline'] ?? '' ?>
                     </div>
-                  <?php if ($promo_block['images']) : ?>
+                    <?php if ($promo_block['images']) : ?>
                     <?php foreach ($promo_block['images'] as $image) : ?>
-                          <div class="promo-block-left-content">
-                              <img src="<?= $image['image']['url'] ?>" alt="">
-                          </div>
+                    <div class="promo-block-left-content">
+                        <img src="<?= $image['image']['url'] ?>" alt="">
+                    </div>
                     <?php endforeach; ?>
-                  <?php endif; ?>
+                    <?php endif; ?>
                 </div>
                 <div class="promo-block-right">
                     <div class="promo-block-description">
-                      <?= $promo_block['description'] ?? '' ?>
+                        <?= $promo_block['description'] ?? '' ?>
                     </div>
                 </div>
             </div>

@@ -202,6 +202,29 @@ header {
     display: flex;
     justify-content: flex-end;
     padding-right: 20%;
+    position: relative;
+}
+
+#ordering::before {
+    content: '';
+    width: 200px;
+    height: 200px;
+    border-top: 1px solid var(--white);
+    border-left: 1px solid var(--white);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#ordering::after {
+    content: '';
+    width: 200px;
+    height: 200px;
+    border-bottom: 1px solid var(--white);
+    border-left: 1px solid var(--white);
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 }
 
 .ordering-procedure {
@@ -220,9 +243,31 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.order-item p {
+    margin: 0;
+    text-align: center;
+}
+
+.order-item:hover {
+    background-color: var(--black);
+    color: var(--white);
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+}
+
+.order-item .headline {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.order-item img {
+    width: 100px;
+    margin-bottom: 5px;
 }
 
 .order-item:nth-last-child(1) {
-    border-bottom: none;
+    border-bottom: 1px solid transparent;
 }
