@@ -118,6 +118,7 @@ header {
     position: relative;
     padding: 20px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 #advantages::before {
@@ -137,7 +138,7 @@ header {
 }
 
 .adv_layout_image img {
-    height: 100vh;
+    height: calc(100vh - 20px);
     transition: all 17s ease-in-out;
     object-fit: cover;
     object-position: center;
@@ -194,4 +195,34 @@ header {
 
 .advantages_texts p {
     margin-bottom: 5px;
+}
+
+#ordering {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20%;
+}
+
+.ordering-procedure {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.order-item {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--black);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.order-item:nth-last-child(1) {
+    border-bottom: none;
 }

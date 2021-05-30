@@ -3,7 +3,7 @@ get_header();
 $pageId = 29;
 $slider = get_field('main-slider', $pageId);
 $advantages = get_field('advantages_block', $pageId);
-$ordering_procedure = get_field('ordering_procedure', $pageId);
+$ordering= get_field('ordering_procedure', $pageId);
 ?>
 <main>
     <section id="front-slider">
@@ -72,28 +72,22 @@ $ordering_procedure = get_field('ordering_procedure', $pageId);
 
 
     </section>
-    <section class="ordering-procedure">
-        <?php if ($ordering_procedure['background_image']) : ?>
-        <img src="<?= $ordering_procedure['background_image']['url'] ?>" alt="">
-        <?php endif ?>
-        <?php if ($ordering_procedure['description_of_ordering_procedure']) : ?>
-        <?php foreach ($ordering_procedure['description_of_ordering_procedure'] as $ordering) : ?>
-        <div>
-            <div class="ordering-procedure-description">
-                <div>
-                    <?php if ($ordering['image']) : ?>
-                    <img src="<?= $ordering['image']['url'] ?>" alt="">
-                    <?php endif; ?>
-                </div>
-                <div>
-                    <?= $ordering['headline'] ?>
-                </div>
-                <div>
-                    <?= $ordering['description'] ?>
-                </div>
+    <section id="ordering" data-parallax="scroll" positionY="0px"
+        data-image-src="<?= $ordering['background_image']['url'] ?>">
+
+        <?php if ($ordering['description_of_ordering_procedure']) : ?>
+        <div class="ordering-procedure">
+            <?php foreach ($ordering['description_of_ordering_procedure'] as $order) : ?>
+            <div class="order-item">
+                <p><?= $order['headline'] ?></p>
+                <?php if ($order['image']) : ?>
+                <img src="<?= $order['image']['url'] ?>" alt="">
+                <?php endif; ?>
+                <p><?= $order['description'] ?></p>
             </div>
+
+            <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
         <?php endif; ?>
     </section>
     <section></section>
