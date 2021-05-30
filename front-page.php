@@ -12,7 +12,7 @@ $slider = get_field('main-slider', 29);
                 ?>
                 <div class="swiper-slide">
                     <div class="slider-content">
-                        <div class="">
+                        <div class="about">
                             <p><?= $slide['description'] ?></p>
                             <h2><?= $slide['title'] ?></h2>
                             <?php if ($slide['link']) { ?>
@@ -23,7 +23,9 @@ $slider = get_field('main-slider', 29);
                         <div class="examples">
                             <?php foreach($examples as $examlpe): 
                               ?>
-                            <img src="<?=$examlpe;?>" alt="example">
+                            <span>
+                                <img src="<?=$examlpe;?>" alt="example">
+                            </span>
                             <?php endforeach; ?>
                         </div>
                     </div>

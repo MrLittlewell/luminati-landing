@@ -11,13 +11,13 @@ $(document).ready(function () {
 
   new Swiper(".front-slider", {
     slidesPerView: 1,
-    speed: 3000,
-    loop: true,
+    speed: 600,
     centeredSlides: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 4000,
+    //   disableOnInteraction: false,
+    // },
+    autoplay: false,
     spaceBetween: 0,
     navigation: {
       nextEl: ".swiper-button-next",
