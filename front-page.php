@@ -1,9 +1,10 @@
 <?php 
 get_header();
-$pageId = 29;
-$slider = get_field('main-slider', $pageId);
-$advantages = get_field('advantages_block', $pageId);
-$ordering= get_field('ordering_procedure', $pageId);
+
+$slider = get_field('main-slider', 14);
+$advantages_block = get_field('advantages_block', 14);
+$ordering_procedure = get_field('ordering_procedure', 14);
+$promo_block= get_field('promo_block', 14);
 ?>
 <main>
     <section id="front-slider">
@@ -90,7 +91,30 @@ $ordering= get_field('ordering_procedure', $pageId);
         </div>
         <?php endif; ?>
     </section>
-    <section></section>
+    <section class="promo-block">
+        <div class="container">
+            <div class="
+            <?= $promo_block['display_position'] ? 'promo-block-wrapper__' . $promo_block['display_position'] : '' ?>">
+                <div class="promo-block-left">
+                    <div class="promo-block-left-content">
+                      <?= $promo_block['headline'] ?? '' ?>
+                    </div>
+                  <?php if ($promo_block['images']) : ?>
+                    <?php foreach ($promo_block['images'] as $image) : ?>
+                          <div class="promo-block-left-content">
+                              <img src="<?= $image['image']['url'] ?>" alt="">
+                          </div>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
+                </div>
+                <div class="promo-block-right">
+                    <div class="promo-block-description">
+                      <?= $promo_block['description'] ?? '' ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section></section>
     <section></section>
     <section></section>
