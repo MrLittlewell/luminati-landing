@@ -1,3 +1,12 @@
+:root {
+    --black: #18191a;
+    --white: #efefed;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,6 +14,16 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--black);
+    background-image: url('../images/white-bg.jpg');
+    background-size: 100%;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
 }
 
 .container {
@@ -57,11 +76,11 @@ body {
 .slider-content .about {
     justify-self: flex-end;
     text-align: end;
-    align-self: center;
+    align-self: flex-start;
 }
 
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     background-color: rgba(0, 0, 0, 0.25);
     width: 100%;
@@ -87,8 +106,92 @@ header {
 .slider-content h2 {
     font-size: 60px;
     margin-top: 10px;
+    font-weight: 400;
 }
 
 .logo-wrapper img {
     width: 200px;
+}
+
+#advantages {
+    max-height: 100vh;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#advantages::before {
+    content: '';
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-top: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+}
+
+.adv_layout_image {
+    overflow: hidden;
+    width: 50%;
+}
+
+.adv_layout_image img {
+    height: 100vh;
+    transition: all 17s ease-in-out;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
+.adv_layout_image:hover img {
+    transform: scale(1.6);
+}
+
+.adv_items {
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    max-width: 50%;
+    gap: 9px;
+    position: absolute;
+    top: 40%;
+    left: 47%;
+}
+
+.avd_item {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+}
+
+.avd_item img {
+    max-width: 100px;
+}
+
+.adv_info {
+    margin: 5px 0 0;
+    font-weight: 500;
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.advantages_texts {
+    position: absolute;
+    top: 25%;
+    left: 55%;
+}
+
+.advantages_texts h2 {
+    font-size: 50px;
+    margin-top: 0;
+}
+
+.advantages_texts p {
+    margin-bottom: 5px;
 }

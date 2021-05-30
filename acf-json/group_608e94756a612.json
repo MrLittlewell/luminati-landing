@@ -409,32 +409,17 @@
             {
                 "param": "page",
                 "operator": "==",
-                "value": "14"
+                "value": "29"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "acf_after_title",
+    "position": "normal",
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "field",
-    "hide_on_screen": [
-        "permalink",
-        "the_content",
-        "excerpt",
-        "discussion",
-        "comments",
-        "revisions",
-        "slug",
-        "author",
-        "format",
-        "page_attributes",
-        "featured_image",
-        "categories",
-        "tags",
-        "send-trackbacks"
-    ],
+    "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1622367455
+    "modified": 1622372795
 }
