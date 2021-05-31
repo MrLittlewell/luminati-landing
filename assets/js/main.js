@@ -26,17 +26,6 @@ $(document).ready(function () {
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
-    },
-    breakpoints: {
-      550: {
-
-      },
-      890: {
-
-      },
-      1100: {
-        slidesPerView: 'auto',
-      }
     }
   });
 });

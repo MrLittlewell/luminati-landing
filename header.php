@@ -36,7 +36,12 @@
                 </div>
                 <div class="">
                     <div class="">links</div>
-                    <div class="">call</div>
+                    <div class="">
+                        <a class="btn" href="#">Перезвоните мне
+                            <div class="button__horizontal"></div>
+                            <div class="button__vertical"></div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

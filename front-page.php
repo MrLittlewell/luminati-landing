@@ -19,11 +19,12 @@ $promo= get_field('promo_block', $pageId);
                             <p><?= $slide['description'] ?></p>
                             <h2><?= $slide['title'] ?></h2>
                             <?php if ($slide['link']) { ?>
-                            <a href="<?= $slide['link'] ?>">Подробнее</a>
+                            <a class="btn" href="<?= $slide['link'] ?>">Подробнее</a>
                             <?php } ?>
                         </div>
 
                         <div class="examples">
+                            <span></span>
                             <?php foreach($examples as $examlpe):
                                   ?>
                             <span>
@@ -32,7 +33,7 @@ $promo= get_field('promo_block', $pageId);
                             <?php endforeach; ?>
                         </div>
                     </div>
-                    <img class="slide-main-image" src="<?php echo $slide['image']['url']; ?>" alt="slide">
+                    <img class="slide-main-image" src="<?= $slide['image']['url']; ?>" alt="slide">
                 </div>
                 <?php } ?>
             </div>
@@ -44,7 +45,8 @@ $promo= get_field('promo_block', $pageId);
     <section id="advantages">
         <div class="adv_layout_image">
             <?php if ($advantages['background_image']) : ?>
-            <img src="<?= $advantages['background_image']['url'] ?>" alt="">
+            <img src="<?= $advantages['background_image']['url'] ?>"
+                alt="<?= $advantages['background_image']['filename'] ?>">
             <?php endif; ?>
         </div>
 
@@ -59,7 +61,7 @@ $promo= get_field('promo_block', $pageId);
             <?php foreach ($advantages['Advantage'] as $advantage) : ?>
             <div class="avd_item">
                 <?php if ($advantage['image']) : ?>
-                <img src="<?= $advantage['image']['url']?>" alt="">
+                <img src="<?= $advantage['image']['url']?>" alt="<?= $advantage['image']['filename'] ?>">
                 <?php endif; ?>
 
                 <p class="adv_info">
@@ -80,10 +82,11 @@ $promo= get_field('promo_block', $pageId);
         <div class="ordering-procedure">
             <?php foreach ($ordering['description_of_ordering_procedure'] as $order) : ?>
             <div class="order-item">
-                <p><?= $order['headline'] ?></p>
+
                 <?php if ($order['image']) : ?>
-                <img src="<?= $order['image']['url'] ?>" alt="">
+                <img src="<?= $order['image']['url'] ?>" alt="<?= $order['image']['filename'] ?>">
                 <?php endif; ?>
+                <p><?= $order['headline'] ?></p>
                 <p><?= $order['description'] ?></p>
             </div>
 
@@ -92,32 +95,35 @@ $promo= get_field('promo_block', $pageId);
         <?php endif; ?>
     </section>
     <section class="promo-block">
-        <div class="container">
-            <?php if ($promo['block']) : ?>
-            <?php foreach ($promo['block'] as $block) : ?>
-            <div class="
+
+        <?php if ($promo['block']) : ?>
+        <?php foreach ($promo['block'] as $block) : ?>
+        <div class="promo-item">
+            <div class="container">
+                <div class="
             <?= $block['display_position'] ? 'promo-block-wrapper__' . $block['display_position'] : '' ?>">
-                <div class="promo-block-left">
-                    <div class="promo-block-left-content">
-                        <?= $block['headline'] ?? '' ?>
+                    <div class="promo-block-left">
+                        <div class="promo-block-left-content">
+                            <?= $block['headline'] ?? '' ?>
+                        </div>
+                        <?php if ($block['images']) : ?>
+                        <?php foreach ($block['images'] as $image) : ?>
+                        <div class="promo-block-left-content">
+                            <img src="<?= $image['image']['url'] ?>" alt="<?= $image['image']['filename'] ?>">
+                        </div>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
-                    <?php if ($block['images']) : ?>
-                    <?php foreach ($block['images'] as $image) : ?>
-                    <div class="promo-block-left-content">
-                        <img src="<?= $image['image']['url'] ?>" alt="">
-                    </div>
-                    <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
-                <div class="promo-block-right">
-                    <div class="promo-block-description">
-                        <?= $block['description'] ?? '' ?>
+                    <div class="promo-block-right">
+                        <div class="promo-block-description">
+                            <?= $block['description'] ?? '' ?>
+                        </div>
                     </div>
                 </div>
             </div>
-            <?php endforeach;?>
-            <?php endif;?>
         </div>
+        <?php endforeach;?>
+        <?php endif;?>
     </section>
     <section></section>
     <section></section>
