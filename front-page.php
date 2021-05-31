@@ -2,11 +2,11 @@
 get_header();
 $pageId = 29;
 $pageDenId = 14;
-$slider = get_field('main-slider', $pageDenId);
-$advantages = get_field('advantages_block', $pageDenId);
-$ordering = get_field('ordering_procedure', $pageDenId);
-$promo = get_field('promo_block', $pageDenId);
-$сertificate_slider = get_field('сertificate_slider', $pageDenId);
+$slider = get_field('main-slider', $pageId);
+$advantages = get_field('advantages_block', $pageId);
+$ordering = get_field('ordering_procedure', $pageId);
+$promo = get_field('promo_block', $pageId);
+$сertificate_slider = get_field('сertificate_slider', $pageId);
 ?>
 <main>
     <section id="front-slider">
@@ -80,7 +80,8 @@ $сertificate_slider = get_field('сertificate_slider', $pageDenId);
     <section id="ordering" data-parallax="scroll" positionY="0px"
         data-image-src="<?= $ordering['background_image']['url'] ?>">
         <div class="ordering-headline">
-          <?= $ordering['headline'] ?? '' ?>
+            <h2><?= $ordering['headline'] ?? '' ?></h2>
+            <a href="#" class="btn">Оформить заявку</a>
         </div>
 
         <?php if ($ordering['description_of_ordering_procedure']) : ?>
@@ -100,18 +101,17 @@ $сertificate_slider = get_field('сertificate_slider', $pageDenId);
         </div>
         <?php endif; ?>
     </section>
-    <section class="promo-block"
-             <?php if ($promo['background_image']['url']) : ?>
-             style="background: url(<?= $promo['background_image']['url']?>)">
-             <?php endif;?>
-        <div class="container">
-            <?php if ($promo['block']) : ?>
-            <?php foreach ($promo['block'] as $block) : ?>
-            <div class="
+    <section class="promo-block">
+
+        <?php if ($promo['block']) : ?>
+        <?php foreach ($promo['block'] as $block) : ?>
+        <div class="promo-item" style="background-image: url(<?= $block['background_image']['url']?>)">
+            <div class="container">
+                <div class="
             <?= $block['display_position'] ? 'promo-block-wrapper__' . $block['display_position'] : '' ?>">
                     <div class="promo-block-left">
                         <div class="promo-block-left-content">
-                            <?= $block['headline'] ?? '' ?>
+                            <h2><?= $block['headline'] ?? '' ?></h2>
                         </div>
                         <?php if ($block['images']) : ?>
                         <?php foreach ($block['images'] as $image) : ?>
@@ -124,10 +124,12 @@ $сertificate_slider = get_field('сertificate_slider', $pageDenId);
                     <div class="promo-block-right">
                         <div class="promo-block-description">
                             <?= $block['description'] ?? '' ?>
+                            <a href="#" class="btn">Заказать</a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <?php endforeach;?>
         <?php endif;?>
@@ -135,33 +137,37 @@ $сertificate_slider = get_field('сertificate_slider', $pageDenId);
     <section id="сertificate_slider">
         <div class="swiper-container сertificate_slider">
             <div class="swiper-wrapper">
-              <?php if ($сertificate_slider['slider']) : ?>
+                <?php if ($сertificate_slider['slider']) : ?>
                 <?php foreach ($сertificate_slider['slider'] as $slide) : ?>
-                      <div class="swiper-slide">
-                          <img class="image-сertificate_slider" src="<?= $slide['image']['url'] ?>" alt="">
-                      </div>
+                <div class="swiper-slide">
+                    <img class="image-сertificate_slider" src="<?= $slide['image']['url'] ?>" alt="">
+                </div>
                 <?php endforeach; ?>
-              <?php endif; ?>
+                <?php endif; ?>
 
             </div>
-                <div class="pagination-сertificate">
-                    <div class="swiper-button-prev-сertificate">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                             id="Layer_1" x="0px" y="0px" viewBox="0 0 338.352 338.352"
-                             style="enable-background:new 0 0 338.352 338.352;" xml:space="preserve">
-        <path d="M169.176,0C75.601,0,0,75.514,0,169.176s75.514,169.176,169.176,169.176s169.176-75.514,169.176-169.176    S262.752,0,169.176,0z M169.176,315.731c-81.191,0-146.556-65.365-146.556-146.556S87.986,22.619,169.176,22.619    s146.556,65.365,146.556,146.556S250.367,315.731,169.176,315.731z"/>
-                            <path d="M231.187,162.382l-74.396-74.396c-4.472-4.472-11.267-4.472-15.825,0c-4.472,4.472-4.472,11.267,0,15.826l65.365,65.365    l-65.365,65.365c-4.472,4.472-4.472,11.267,0,15.825c2.236,2.236,4.472,3.354,7.913,3.354c2.236,0,5.677-1.118,9.03-2.236    l73.278-73.278c2.236-2.236,3.355-4.472,3.355-7.913C234.542,166.94,233.424,164.618,231.187,162.382z"/>
+            <div class="pagination-сertificate">
+                <div class="swiper-button-prev-сertificate">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        id="Layer_1" x="0px" y="0px" viewBox="0 0 338.352 338.352"
+                        style="enable-background:new 0 0 338.352 338.352;" xml:space="preserve">
+                        <path
+                            d="M169.176,0C75.601,0,0,75.514,0,169.176s75.514,169.176,169.176,169.176s169.176-75.514,169.176-169.176    S262.752,0,169.176,0z M169.176,315.731c-81.191,0-146.556-65.365-146.556-146.556S87.986,22.619,169.176,22.619    s146.556,65.365,146.556,146.556S250.367,315.731,169.176,315.731z" />
+                        <path
+                            d="M231.187,162.382l-74.396-74.396c-4.472-4.472-11.267-4.472-15.825,0c-4.472,4.472-4.472,11.267,0,15.826l65.365,65.365    l-65.365,65.365c-4.472,4.472-4.472,11.267,0,15.825c2.236,2.236,4.472,3.354,7.913,3.354c2.236,0,5.677-1.118,9.03-2.236    l73.278-73.278c2.236-2.236,3.355-4.472,3.355-7.913C234.542,166.94,233.424,164.618,231.187,162.382z" />
                     </svg>
-                    </div>
-                    <div class="swiper-button-next-сertificate">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                             id="Layer_1" x="0px" y="0px" viewBox="0 0 338.352 338.352"
-                             style="enable-background:new 0 0 338.352 338.352;" xml:space="preserve">
-        <path d="M169.176,0C75.601,0,0,75.514,0,169.176s75.514,169.176,169.176,169.176s169.176-75.514,169.176-169.176    S262.752,0,169.176,0z M169.176,315.731c-81.191,0-146.556-65.365-146.556-146.556S87.986,22.619,169.176,22.619    s146.556,65.365,146.556,146.556S250.367,315.731,169.176,315.731z"/>
-                            <path d="M231.187,162.382l-74.396-74.396c-4.472-4.472-11.267-4.472-15.825,0c-4.472,4.472-4.472,11.267,0,15.826l65.365,65.365    l-65.365,65.365c-4.472,4.472-4.472,11.267,0,15.825c2.236,2.236,4.472,3.354,7.913,3.354c2.236,0,5.677-1.118,9.03-2.236    l73.278-73.278c2.236-2.236,3.355-4.472,3.355-7.913C234.542,166.94,233.424,164.618,231.187,162.382z"/>
-                    </svg>
-                    </div>
                 </div>
+                <div class="swiper-button-next-сertificate">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        id="Layer_1" x="0px" y="0px" viewBox="0 0 338.352 338.352"
+                        style="enable-background:new 0 0 338.352 338.352;" xml:space="preserve">
+                        <path
+                            d="M169.176,0C75.601,0,0,75.514,0,169.176s75.514,169.176,169.176,169.176s169.176-75.514,169.176-169.176    S262.752,0,169.176,0z M169.176,315.731c-81.191,0-146.556-65.365-146.556-146.556S87.986,22.619,169.176,22.619    s146.556,65.365,146.556,146.556S250.367,315.731,169.176,315.731z" />
+                        <path
+                            d="M231.187,162.382l-74.396-74.396c-4.472-4.472-11.267-4.472-15.825,0c-4.472,4.472-4.472,11.267,0,15.826l65.365,65.365    l-65.365,65.365c-4.472,4.472-4.472,11.267,0,15.825c2.236,2.236,4.472,3.354,7.913,3.354c2.236,0,5.677-1.118,9.03-2.236    l73.278-73.278c2.236-2.236,3.355-4.472,3.355-7.913C234.542,166.94,233.424,164.618,231.187,162.382z" />
+                    </svg>
+                </div>
+            </div>
         </div>
     </section>
     <section></section>
