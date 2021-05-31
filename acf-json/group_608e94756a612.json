@@ -295,6 +295,25 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_60b5424160701",
+                    "label": "Заголовок",
+                    "name": "headline",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_60b35b7a6f892",
                     "label": "Фоновая картинка",
                     "name": "background_image",
@@ -303,7 +322,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -418,6 +437,30 @@
             },
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_60b53ef1d625d",
+                    "label": "Фоновая картинка",
+                    "name": "background_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
                 {
                     "key": "field_60b38c1f44d20",
                     "label": "Блок",
@@ -548,6 +591,68 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_60b52d8fe758f",
+            "label": "Слайдер сертификатов",
+            "name": "сertificate_slider",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_60b52e3de7590",
+                    "label": "Слайд",
+                    "name": "slider",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_60b52e9ae7591",
+                            "label": "image",
+                            "name": "image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "location": [
@@ -555,7 +660,7 @@
             {
                 "param": "page",
                 "operator": "==",
-                "value": "29"
+                "value": "14"
             }
         ]
     ],
@@ -582,5 +687,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1622380402
+    "modified": 1622491866
 }
