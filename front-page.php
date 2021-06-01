@@ -1,7 +1,6 @@
 <?php
 get_header();
-$pageId = 29;
-$pageDenId = 14;
+$pageId = 14;
 $slider = get_field('main-slider', $pageId);
 $advantages = get_field('advantages_block', $pageId);
 $ordering = get_field('ordering_procedure', $pageId);
@@ -102,10 +101,12 @@ $сertificate_slider = get_field('сertificate_slider', $pageId);
         <?php endif; ?>
     </section>
     <section class="promo-block">
-
         <?php if ($promo['block']) : ?>
         <?php foreach ($promo['block'] as $block) : ?>
-        <div class="promo-item" style="background-image: url(<?= $block['background_image']['url']?>)">
+        <div class="promo-item"
+          <?php if ($promo['background_image']['url']) : ?>
+             style="background: url(<?= $promo['background_image']['url']?>)">
+          <?php endif;?>
             <div class="container">
                 <div class="
             <?= $block['display_position'] ? 'promo-block-wrapper__' . $block['display_position'] : '' ?>">
