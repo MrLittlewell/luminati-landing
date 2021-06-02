@@ -37,6 +37,7 @@ input {
     text-align: center;
     z-index: 1;
     border-radius: 3px;
+    font-weight: 600;
 }
 
 .btn:active:not(:disabled):active {
@@ -405,6 +406,7 @@ header {
 .promo-item {
     padding: 40px 0;
     color: var(--white);
+    background-size: cover;
 }
 
 .promo-item h2 {
@@ -543,10 +545,22 @@ header {
 #quiz-form,
 #last-form {
     background-image: url('../images//black-bg.jpg');
+    background-size: cover;
     color: var(--white);
-    padding: 40px 0;
+    padding: 80px 0;
     position: relative;
     z-index: 2;
+}
+
+#last-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#last-form form button {
+    max-width: 440px;
+    align-self: flex-end;
+    font-weight: 600;
 }
 
 #quiz-form::before,
@@ -770,6 +784,7 @@ header {
 a[data-fancybox] {
     height: 100%;
     display: flex;
+    justify-content: center;
     background-color: transparent !important;
     border: none !important;
     user-select: none !important;
@@ -854,4 +869,39 @@ a[data-fancybox] {
 
 .works-gallery {
     margin-bottom: 40px;
+}
+
+#contacts {
+    position: relative;
+}
+
+.contacts-info {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15%;
+    width: 300px;
+    height: 350px;
+    background-image: url('../images/black-bg.jpg');
+    color: var(--white);
+    padding: 20px;
+}
+
+footer {
+    background-image: url('../images/black-bg.jpg');
+    background-size: cover;
+    height: 300px;
+    padding: 40px 0;
+}
+
+.copyright,
+.copyright a {
+    width: 100%;
+    color: var(--white);
+    text-align: center;
+}
+
+#our-works {
+    padding: 60px 0;
 }

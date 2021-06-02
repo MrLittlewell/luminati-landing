@@ -116,7 +116,8 @@ $our_works = get_field('our_works', $pageId);
         data-image-src="<?= $ordering['background_image']['url'] ?>">
         <div class="ordering-headline">
             <h2><?= $ordering['headline'] ?? '' ?></h2>
-            <a href="#" class="btn">Оформить заявку</a>
+            <a href="javascript:;" class="btn" data-fancybox data-animation-duration="700" data-src="#callback">Оформить
+                заявку</a>
         </div>
 
         <?php if ($ordering['description_of_ordering_procedure']) : ?>
@@ -140,7 +141,8 @@ $our_works = get_field('our_works', $pageId);
 
         <?php if ($promo['block']) : ?>
         <?php foreach ($promo['block'] as $block) : ?>
-        <div class="promo-item" style="background-image: url(<?= $block['background_image']['url']?>)">
+        <div class="promo-item" id="<?=$block['slug']?>"
+            style="background-image: url(<?= $block['background_image']['url']?>)">
             <div class="container">
                 <div class="
             <?= $block['display_position'] ? 'promo-block-wrapper__' . $block['display_position'] : '' ?>">
@@ -159,7 +161,8 @@ $our_works = get_field('our_works', $pageId);
                     <div class="promo-block-right">
                         <div class="promo-block-description">
                             <?= $block['description'] ?? '' ?>
-                            <a href="#" class="btn">Заказать</a>
+                            <a href="javascript:;" class="btn" data-fancybox data-animation-duration="700"
+                                data-src="#callback">Заказать</a>
                         </div>
                     </div>
                 </div>
@@ -330,19 +333,28 @@ $our_works = get_field('our_works', $pageId);
                         <textarea class="form-control" type="text" name="f-Name"></textarea>
                     </div>
                 </div>
-                <button>Отпрвить</button>
+                <button>Отправить</button>
             </form>
         </div>
     </section>
+    <div id="contacts">
+        <div class="contacts-info">
+            <p>Адрес:</p>
+            <p>Телефон:</p>
+            <p>Email:</p>
+        </div>
+        <div class="map">
+            <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab9f1121662192984f69e0c2646e8c1bfed76f35d530a97375b27f728cd3cdaf5&amp;source=constructor"
+                width="100%" height="500" frameborder="0"></iframe>
+        </div>
 
+    </div>
     <div class="to-top">
-
-
         <svg width="50" height="50" x="0" y="0" viewBox="0 0 490.544 490.544" style="enable-background:new 0 0 512 512">
             <rect width="490.544" height="490.544" rx="50" ry="50" fill="#18191a" shape="rounded"
                 transform="matrix(0.84,0,0,0.84,39.24352050781252,39.24352050781252)" />
             <g transform="matrix(0.7,0,0,0.7,73.58156640529643,73.58160552978526)">
-
                 <path
                     d="M18.098,274.151L245.213,47.015l227.115,227.136c4.237,4.093,10.99,3.975,15.083-0.262   c3.993-4.134,3.993-10.687,0-14.821L252.744,24.401c-4.165-4.164-10.917-4.164-15.083,0L2.994,259.068   c-4.093,4.237-3.975,10.99,0.262,15.083c4.134,3.992,10.687,3.992,14.82,0H18.098z"
                     fill="#efefed" data-original="#607d8b" />
@@ -356,7 +368,25 @@ $our_works = get_field('our_works', $pageId);
                     d="M479.88,469.266c-2.831,0.005-5.548-1.115-7.552-3.115L245.213,239.015L18.098,466.151  c-4.237,4.093-10.99,3.976-15.083-0.262c-3.993-4.134-3.993-10.687,0-14.821l234.667-234.667c4.165-4.164,10.917-4.164,15.083,0  l234.667,234.667c4.159,4.172,4.148,10.926-0.024,15.085C485.409,468.146,482.702,469.265,479.88,469.266z"
                     fill="#efefed" data-original="#000000" />
         </svg>
+    </div>
 
+    <div style="display: none;" id="callback" class="animated-modal">
+        <form>
+            <div class="form-field">
+                <label for="f-Name">Введите Ваше имя</label>
+                <input class="form-control" type="text" name="f-Name">
+            </div>
+            <div class="form-field">
+                <label for="f-Name">Введите Ваш email</label>
+                <input class="form-control" type="email" name="f-Name">
+            </div>
+            <div class="form-field">
+                <label for="f-Name">Введите Ваше телефон</label>
+                <input class="form-control" type="tel" name="f-Name">
+            </div>
+
+            <button>Отпрвить</button>
+        </form>
     </div>
 </main>
 

@@ -40,7 +40,8 @@
                 <div class="">
                     <div class="">links</div>
                     <div class="">
-                        <a class="btn" href="#">Перезвоните мне
+                        <a href="javascript:;" class="btn" data-fancybox data-animation-duration="700"
+                            data-src="#callback">Перезвоните мне
                             <div class="button__horizontal"></div>
                             <div class="button__vertical"></div>
                         </a>

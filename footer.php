@@ -1,7 +1,9 @@
   <footer>
-      <div class="Copyright">Copyright &copy; <?php echo date("Y"); ?>. &nbsp;
-          <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>.
-          Все права защищены. <br />
+      <div class="container">
+          <div class="copyright">Copyright &copy; <?php echo date("Y"); ?>. &nbsp;
+              <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>.
+              Все права защищены. <br />
+          </div>
       </div>
   </footer>
   <?php wp_footer(); ?>

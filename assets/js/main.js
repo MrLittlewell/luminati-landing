@@ -14,10 +14,10 @@ $(document).ready(function () {
     speed: 600,
     centeredSlides: true,
     loop: true,
-    // autoplay: {
-    //   delay: 4000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
     // autoplay: false,
     spaceBetween: 0,
     navigation: {
@@ -35,10 +35,10 @@ $(document).ready(function () {
     speed: 600,
     centeredSlides: true,
     loop: true,
-    // autoplay: {
-    //   delay: 4000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
     spaceBetween: 10,
     navigation: {
       nextEl: ".swiper-button-next-сertificate",
@@ -72,6 +72,7 @@ $(document).ready(function () {
       }
     });
   }
+
   checkFormControl();
   var $formField = $(".form-field");
   $formField.on("focus", ".form-control", function () {
@@ -87,9 +88,9 @@ $(document).ready(function () {
 
 
   //Mask 
-  $('input[type="tel"]').mask('+7(000)000-00-00');
-  //Masonry
+  $('input[type="tel"]').mask('+7 (000) 000-00-00');
 
+  //Masonry
   const masonry = $('.works-gallery').masonry({
     // options
     itemSelector: '.gallery-item',
@@ -102,9 +103,9 @@ $(document).ready(function () {
     }
   });
   setTimeout(() => {
-    masonry.masonry()
+    $('.works-gallery').masonry()
 
-  }, 100)
+  }, 1000)
 
   //Quiz
   $('.step-one .variable').click(function () {
