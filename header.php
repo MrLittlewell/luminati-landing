@@ -20,7 +20,9 @@
     <?php wp_head(); ?>
 </head>
 
-
+<?php
+$blocks = get_field('block', 'option');
+?>
 <body>
     <header>
         <div class="container">
@@ -38,7 +40,21 @@
                     </a>
                 </div>
                 <div class="">
-                    <div class="">links</div>
+                  <?php if ($blocks) : ?>
+                    <?php foreach ($blocks as $block) : ?>
+                          <div class="">
+                            <?= $block['headline'] ?? '' ?>
+                          </div>
+                          <div>
+                            <?= $block['phone'] ?? '' ?>
+                          </div>
+                          <div>
+                            <?php if ($block['image']) : ?>
+                                <img src="<?= $block['image']['url'] ?>" alt="">
+                            <?php endif; ?>
+                          </div>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
                     <div class="">
                         <a class="btn" href="#">Перезвоните мне
                             <div class="button__horizontal"></div>

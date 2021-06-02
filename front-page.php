@@ -1,7 +1,6 @@
 <?php
 get_header();
-$pageId = 29;
-$pageDenId = 14;
+$pageId = 14;
 $slider = get_field('main-slider', $pageId);
 $advantages = get_field('advantages_block', $pageId);
 $ordering = get_field('ordering_procedure', $pageId);
