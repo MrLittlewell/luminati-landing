@@ -31,7 +31,7 @@ $(document).ready(function () {
   });
 
   new Swiper(".сertificate_slider", {
-    slidesPerView: 4,
+    slidesPerView: 1,
     speed: 600,
     centeredSlides: true,
     loop: true,
@@ -48,17 +48,20 @@ $(document).ready(function () {
       el: ".swiper-pagination",
       clickable: true,
     },
-    // breakpoints: {
-    //   550: {
-    //
-    //   },
-    //   890: {
-    //
-    //   },
-    //   1100: {
-    //     slidesPerView: 'auto',
-    //   }
-    // }
+    breakpoints: {
+      550: {
+
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      890: {
+        slidesPerView: 3,
+      },
+      1100: {
+        slidesPerView: 4,
+      }
+    }
   });
 
 
@@ -194,5 +197,54 @@ $(document).ready(function () {
   //Menu
   $('.flyout-trigger').click(function () {
     $('body').toggleClass('flyout-shown')
+  });
+
+  // Tooltip
+
+  $(document).tooltip({
+    items: "[tooltip]",
+    content: function () {
+      return $(this).attr('tooltip')
+    }
+  });
+
+  //Menu Scroll
+  $(window).scroll(function () {
+
+    if ($(this).scrollTop() === $('#front-slider').offset().top) {
+      $('.side-menu a').removeClass('active');
+      $('.side-menu li:nth-child(1) a').addClass('active');
+    }
+
+    if ($(this).scrollTop() >= $('#advantages').offset().top - 10) {
+      $('.side-menu a').removeClass('active');
+      $('.side-menu li:nth-child(2) a').addClass('active');
+    }
+
+    if ($(this).scrollTop() >= $('#ordering').offset().top - 10) {
+      $('.side-menu a').removeClass('active');
+      $('.side-menu li:nth-child(3) a').addClass('active');
+    }
+
+    if ($(this).scrollTop() >= $('#slimline').offset().top - 10) {
+      $('.side-menu a').removeClass('active');
+      $('.side-menu li:nth-child(4) a').addClass('active');
+    }
+
+    if ($(this).scrollTop() >= $('#сertificate_slider').offset().top - 10) {
+      $('.side-menu a').removeClass('active');
+      $('.side-menu li:nth-child(5) a').addClass('active');
+    }
+
+    if ($(this).scrollTop() >= $('#our-works').offset().top - 10) {
+      $('.side-menu a').removeClass('active');
+      $('.side-menu li:nth-child(6) a').addClass('active');
+    }
+
+    if ($(this).scrollTop() >= $('#contacts').offset().top - 500) {
+      $('.side-menu a').removeClass('active');
+      $('.side-menu li:nth-child(7) a').addClass('active');
+    }
+
   });
 });

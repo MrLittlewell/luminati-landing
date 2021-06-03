@@ -8,6 +8,8 @@ $ordering = get_field('ordering_procedure', $pageId);
 $promo = get_field('promo_block', $pageId);
 $сertificate_slider = get_field('сertificate_slider', $pageId);
 $our_works = get_field('our_works', $pageId);
+$footer = get_field('footer', 'option');
+
 ?>
 <main>
     <section id="front-slider">
@@ -17,8 +19,8 @@ $our_works = get_field('our_works', $pageId);
                     $examples = $slide['examples'];
                     ?>
                 <div class="swiper-slide">
-                    <div class="slider-content">
-                        <div class="about">
+                    <div class="slider-content ">
+                        <div class="about animate__animated animate__fadeInLeftBig" data-wow-offset="0">
                             <p><?= $slide['description'] ?></p>
                             <h2><?= $slide['title'] ?></h2>
                             <?php if ($slide['link']) { ?>
@@ -26,7 +28,7 @@ $our_works = get_field('our_works', $pageId);
                             <?php } ?>
                         </div>
 
-                        <div class="examples">
+                        <div class="examples animate__animated animate__fadeInRightBig" data-wow-offset="0">
                             <span></span>
                             <?php foreach($examples as $examlpe):
                                   ?>
@@ -90,7 +92,7 @@ $our_works = get_field('our_works', $pageId);
             <?php endif; ?>
         </div>
 
-        <div class="advantages_texts">
+        <div class="advantages_texts animate__animated animate__fadeInDown" data-wow-offset="0">
             <p><?= $advantages['subheadline'] ?? ''?></p>
             <h2><?= $advantages['headline'] ?? ''?></h2>
         </div>
@@ -99,7 +101,7 @@ $our_works = get_field('our_works', $pageId);
         <div class="adv_items">
 
             <?php foreach ($advantages['Advantage'] as $advantage) : ?>
-            <div class="avd_item">
+            <div class="avd_item animate__animated animate__fadeInBottomRight" data-wow-offset="0">
                 <?php if ($advantage['image']) : ?>
                 <img src="<?= $advantage['image']['url']?>" alt="<?= $advantage['image']['filename'] ?>">
                 <?php endif; ?>
@@ -114,14 +116,14 @@ $our_works = get_field('our_works', $pageId);
     </section>
     <section id="ordering" data-parallax="scroll" positionY="0px"
         data-image-src="<?= $ordering['background_image']['url'] ?>">
-        <div class="ordering-headline">
+        <div class="ordering-headline animate__animated animate__fadeInLeftBig" data-wow-offset="0">
             <h2><?= $ordering['headline'] ?? '' ?></h2>
             <a href="javascript:;" class="btn" data-fancybox data-animation-duration="700" data-src="#callback">Оформить
                 заявку</a>
         </div>
 
         <?php if ($ordering['description_of_ordering_procedure']) : ?>
-        <div class="ordering-procedure">
+        <div class="ordering-procedure animate__animated animate__fadeInTopRight" data-wow-offset="0">
 
             <?php foreach ($ordering['description_of_ordering_procedure'] as $order) : ?>
             <div class="order-item">
@@ -146,7 +148,8 @@ $our_works = get_field('our_works', $pageId);
             <div class="container">
                 <div class="
             <?= $block['display_position'] ? 'promo-block-wrapper__' . $block['display_position'] : '' ?>">
-                    <div class="promo-block-left">
+                    <div class="promo-block-left  animate__animated animate__fadeIn animate__slow animate__delay-1s"
+                        data-wow-offset="0">
                         <div class="promo-block-left-content">
                             <h2><?= $block['headline'] ?? '' ?></h2>
                         </div>
@@ -339,9 +342,36 @@ $our_works = get_field('our_works', $pageId);
     </section>
     <div id="contacts">
         <div class="contacts-info">
-            <p>Адрес:</p>
-            <p>Телефон:</p>
-            <p>Email:</p>
+            <? foreach($footer as $info): ?>
+            <? $type = $info['type'];
+                    switch ($type) {
+                        case 'string': ?>
+            <div class="contacts-info__item">
+                <img src="<?=$info['icon']['url']?>" alt="">
+                <div><?=$info['link']?></div>
+            </div>
+            <? break;
+                        case 'email':?>
+            <a class="contacts-info__item" href="mailto:<?=$info['link']?>">
+                <img src="<?=$info['icon']['url']?>" alt="">
+                <div><?=$info['link']?></div>
+            </a>
+            <?break;
+                        case 'tel': ?>
+            <a class="contacts-info__item" href="tel:<?=$info['link']?>">
+                <img src="<?=$info['icon']['url']?>" alt="">
+                <div><?=$info['link']?></div>
+            </a>
+            <?break;
+                        default: ?>
+            <div class="contacts-info__item">
+                <img src="<?=$info['icon']['url']?>" alt="">
+                <div><?=$info['link']?></div>
+            </div>
+            <?break;
+                    }
+                    ?>
+            <? endforeach; ?>
         </div>
         <div class="map">
             <iframe
@@ -381,7 +411,7 @@ $our_works = get_field('our_works', $pageId);
                 <input class="form-control" type="email" name="f-Name">
             </div>
             <div class="form-field">
-                <label for="f-Name">Введите Ваше телефон</label>
+                <label for="f-Name">Введите Ваш телефон</label>
                 <input class="form-control" type="tel" name="f-Name">
             </div>
 

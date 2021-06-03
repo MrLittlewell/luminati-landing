@@ -21,7 +21,7 @@
 </head>
 
 <?php
-$blocks = get_field('block', 'option');
+$header = get_field('header', 'option');
 ?>
 
 <body>
@@ -41,39 +41,52 @@ $blocks = get_field('block', 'option');
                     </a>
                 </div>
                 <div class="">
-                    <?php if ($blocks) : ?>
-                    <?php foreach ($blocks as $block) : ?>
-                    <div class="">
-                        <?= $block['headline'] ?? '' ?>
-                    </div>
-                    <div>
-                        <?= $block['phone'] ?? '' ?>
-                    </div>
-                    <div>
-                        <?php if ($block['image']) : ?>
-                        <img src="<?= $block['image']['url'] ?>" alt="">
-                        <?php endif; ?>
-                    </div>
-                    <?php endforeach; ?>
-                    <?php endif; ?>
-                    <div class="">
-                        <a href="javascript:;" class="btn" data-fancybox data-animation-duration="700"
-                            data-src="#callback">Перезвоните мне
+                    <div class="header-infos">
+                        <? foreach($header as $info): ?>
+                        <? $type = $info['type'];
+                    switch ($type) {
+                        case 'string': ?>
+                        <div class="contacts-info__item" tooltip="<?=$info['link']?>">
+                            <img src="<?=$info['icon']['url']?>" alt="icon">
+                        </div>
+                        <? break;
+                        case 'email':?>
+                        <a class="contacts-info__item" href="mailto:<?=$info['link']?>" tooltip="<?=$info['link']?>">
+                            <img src="<?=$info['icon']['url']?>" alt="icon">
                         </a>
+                        <?break;
+                        case 'tel': ?>
+                        <a class="contacts-info__item" href="tel:<?=$info['link']?>" tooltip="<?=$info['link']?>">
+                            <img src="<?=$info['icon']['url']?>" alt="icon">
+                        </a>
+                        <?break;
+                        default: ?>
+                        <div class="contacts-info__item" tooltip="<?=$info['link']?>">
+                            <img src="<?=$info['icon']['url']?>" alt="icon">
+                        </div>
+                        <?break;
+                    }
+                    ?>
+                        <? endforeach; ?>
                     </div>
-                    <div class="flyout-trigger">
-                        <span class="flyout-trigger__bar"></span>
-                        <span class="flyout-trigger__bar"></span>
-                        <span class="flyout-trigger__bar"></span>
-                    </div>
+
+                    <a href="javascript:;" class="btn" data-fancybox data-animation-duration="700"
+                        data-src="#callback">Перезвоните мне
+                    </a>
+                </div>
+                <div class="flyout-trigger">
+                    <span class="flyout-trigger__bar"></span>
+                    <span class="flyout-trigger__bar"></span>
+                    <span class="flyout-trigger__bar"></span>
                 </div>
             </div>
+        </div>
         </div>
     </header>
 
     <div class="side-menu">
         <ul>
-            <li><a href="#">Главная</a></li>
+            <li><a class="active" href="#">Главная</a></li>
             <li><a href="#advantages">Преимущества</a></li>
             <li><a href="#ordering">Как мы работаем</a></li>
             <li><a href="#slimline">Наша продукция</a></li>
