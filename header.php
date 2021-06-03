@@ -23,8 +23,9 @@
 <?php
 $blocks = get_field('block', 'option');
 ?>
+
 <body>
-    <header>
+    <header id="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo-wrapper">
@@ -40,29 +41,44 @@ $blocks = get_field('block', 'option');
                     </a>
                 </div>
                 <div class="">
-                  <?php if ($blocks) : ?>
+                    <?php if ($blocks) : ?>
                     <?php foreach ($blocks as $block) : ?>
-                          <div class="">
-                            <?= $block['headline'] ?? '' ?>
-                          </div>
-                          <div>
-                            <?= $block['phone'] ?? '' ?>
-                          </div>
-                          <div>
-                            <?php if ($block['image']) : ?>
-                                <img src="<?= $block['image']['url'] ?>" alt="">
-                            <?php endif; ?>
-                          </div>
+                    <div class="">
+                        <?= $block['headline'] ?? '' ?>
+                    </div>
+                    <div>
+                        <?= $block['phone'] ?? '' ?>
+                    </div>
+                    <div>
+                        <?php if ($block['image']) : ?>
+                        <img src="<?= $block['image']['url'] ?>" alt="">
+                        <?php endif; ?>
+                    </div>
                     <?php endforeach; ?>
-                  <?php endif; ?>
+                    <?php endif; ?>
                     <div class="">
                         <a href="javascript:;" class="btn" data-fancybox data-animation-duration="700"
                             data-src="#callback">Перезвоните мне
-                            <div class="button__horizontal"></div>
-                            <div class="button__vertical"></div>
                         </a>
+                    </div>
+                    <div class="flyout-trigger">
+                        <span class="flyout-trigger__bar"></span>
+                        <span class="flyout-trigger__bar"></span>
+                        <span class="flyout-trigger__bar"></span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+    <div class="side-menu">
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#advantages">Преимущества</a></li>
+            <li><a href="#ordering">Как мы работаем</a></li>
+            <li><a href="#slimline">Наша продукция</a></li>
+            <li><a href="#сertificate_slider">Наши сертификаты</a></li>
+            <li><a href="#our-works">Наши работы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </div>

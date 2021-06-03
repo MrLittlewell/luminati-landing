@@ -141,7 +141,7 @@ $our_works = get_field('our_works', $pageId);
 
         <?php if ($promo['block']) : ?>
         <?php foreach ($promo['block'] as $block) : ?>
-        <div class="promo-item" id="<?=$block['slug']?>"
+        <div class="promo-item" id="<?=$block['anchor']?>"
             style="background-image: url(<?= $block['background_image']['url']?>)">
             <div class="container">
                 <div class="

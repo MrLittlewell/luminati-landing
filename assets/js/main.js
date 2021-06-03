@@ -190,4 +190,9 @@ $(document).ready(function () {
       $('.to-top').fadeOut(500)
     }
   });
+
+  //Menu
+  $('.flyout-trigger').click(function () {
+    $('body').toggleClass('flyout-shown')
+  });
 });

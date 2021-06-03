@@ -457,6 +457,25 @@
                     "button_label": "",
                     "sub_fields": [
                         {
+                            "key": "field_60b8ecec96625",
+                            "label": "Якорь",
+                            "name": "anchor",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_60b54ceedbc8f",
                             "label": "Фон",
                             "name": "background_image",
@@ -705,7 +724,7 @@
             {
                 "param": "page",
                 "operator": "==",
-                "value": "14"
+                "value": "29"
             }
         ]
     ],
@@ -732,5 +751,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1622658102
+    "modified": 1622732038
 }
