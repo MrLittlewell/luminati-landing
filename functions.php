@@ -7,7 +7,7 @@ function luminotti_scripts_styles()
   wp_enqueue_style('plugins');
   wp_enqueue_style('my_style');
 
-  wp_enqueue_script('jquery_js', get_template_directory_uri() . '/assets/js/jquery.js', array(), '1.0', true);
+  wp_enqueue_script('jquery_js', get_template_directory_uri() . '/assets/js/jquery.min.js', array(), '1.0', true);
   wp_enqueue_script('plugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array(), '1.0', true);
   wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0', true);
   wp_localize_script('main', 'ajax', [

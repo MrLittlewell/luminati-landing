@@ -93,22 +93,8 @@ $(document).ready(function () {
   //Mask 
   $('input[type="tel"]').mask('+7 (000) 000-00-00');
 
-  //Masonry
-  const masonry = $('.works-gallery').masonry({
-    // options
-    itemSelector: '.gallery-item',
-    singleMode: false,
-    isResizable: true,
-    isAnimated: true,
-    animationOptions: {
-      queue: false,
-      duration: 500
-    }
-  });
-  setTimeout(() => {
-    $('.works-gallery').masonry()
 
-  }, 1000)
+
 
   //Quiz
   $('.step-one .variable').click(function () {
@@ -247,4 +233,25 @@ $(document).ready(function () {
     }
 
   });
+
+  //Masonry
+
+  window.onload = function () {
+    $('.loader').fadeOut(500);
+    setTimeout(() => {
+
+      $('.loader').remove()
+    }, 500)
+    const ms = $('.works-gallery').masonry({
+      // options
+      itemSelector: '.gallery-item',
+      singleMode: false,
+      isResizable: true,
+      isAnimated: true,
+      animationOptions: {
+        queue: false,
+        duration: 500
+      }
+    }).masonry();
+  };
 });

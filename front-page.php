@@ -156,7 +156,7 @@ $footer = get_field('footer', 'option');
                         <?php if ($block['images']) : ?>
                         <?php foreach ($block['images'] as $image) : ?>
                         <div class="promo-block-left-content">
-                            <img src="<?= $image['image']['url'] ?>" alt="<?= $image['image']['filename'] ?>">
+                            <img src="<?= $image['sizes']['medium'] ?>" alt="<?= $image['filename'] ?>">
                         </div>
                         <?php endforeach; ?>
                         <?php endif; ?>
@@ -417,6 +417,18 @@ $footer = get_field('footer', 'option');
 
             <button>Отпрвить</button>
         </form>
+    </div>
+    <div class="loader">
+        <div class="">
+            <?php
+            $custom_logo_id = get_theme_mod('custom_logo');
+            $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+
+            if (has_custom_logo()) {
+            echo '<img src="' . esc_url($logo[0]) . '" alt="' . get_bloginfo('name') . '">';
+            }
+            ?>
+        </div>
     </div>
 </main>
 

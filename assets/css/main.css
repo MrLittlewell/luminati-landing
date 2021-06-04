@@ -3,6 +3,21 @@
     --white: #efefed;
 }
 
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/black-bg.jpg);
+    background-color: var(--black);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -173,8 +188,11 @@ header .container {
 }
 
 .slider-content .examples img {
-    min-width: 160px;
+    min-width: 173px;
+    min-height: 173px;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .slider-content .about {
@@ -446,6 +464,7 @@ header {
 .promo-block-left-content img {
     max-width: 250px;
     height: 100%;
+    object-fit: cover;
 }
 
 .promo-block-left-content:first-child {
@@ -1371,6 +1390,7 @@ header .header-infos {
     .advantages_texts {
         top: unset;
         position: relative;
+        left: 0;
     }
 
     .advantages_texts h2 {
@@ -1448,7 +1468,6 @@ header .header-infos {
     }
 
     .ordering-headline {
-        left: 50%;
         transform: translateX(-50%);
         width: calc(100% - 60px);
         top: 20px;
