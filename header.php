@@ -1,21 +1,30 @@
 <!doctype html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="facebook-domain-verification" content="euetm5pg293h6sxyr6y0w97kq3w75r" />
     <title><?php wp_title('«', true, 'right'); ?> <?php bloginfo('name'); ?></title>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
     <?php wp_head(); ?>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '917325899045649');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=917325899045649&ev=PageView&noscript=1"
+    /></noscript>
+<!-- End Facebook Pixel Code -->
 </head>
 
 <?php
@@ -86,10 +95,10 @@ $header = get_field('header', 'option');
         <ul>
             <li><a class="active" href="#">Главная</a></li>
             <li><a href="#advantages">Преимущества</a></li>
-            <li><a href="#ordering">Как мы работаем</a></li>
             <li><a href="#slimline">Наша продукция</a></li>
-            <li><a href="#сertificate_slider">Наши сертификаты</a></li>
-            <li><a href="#our-works">Наши работы</a></li>
+            <li><a href="#сertificate_slider">Светильники</a></li>
+            <li><a href="#our-works">Примеры работ</a></li>
+            <li><a href="#ordering">Как мы работаем</a></li>
             <li><a href="#contacts">Контакты</a></li>
         </ul>
     </div>

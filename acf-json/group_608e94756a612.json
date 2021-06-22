@@ -193,7 +193,7 @@
                     "key": "field_60b355f9314eb",
                     "label": "Фоновая картинка",
                     "name": "background_image",
-                    "type": "image",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -202,16 +202,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
                     "key": "field_60b35614314ec",
@@ -733,5 +728,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1622756188
+    "modified": 1623952949
 }

@@ -12,6 +12,7 @@ $footer = get_field('footer', 'option');
 
 ?>
 <main>
+<h1 class="hidden-h">Трековые сисиемы Luminotti</h1>
     <section id="front-slider">
         <div class="swiper-container front-slider">
             <div class="swiper-wrapper">
@@ -84,61 +85,41 @@ $footer = get_field('footer', 'option');
             </div>
         </div>
     </section>
+
     <section id="advantages">
         <div class="adv_layout_image">
             <?php if ($advantages['background_image']) : ?>
-            <img src="<?= $advantages['background_image']['url'] ?>"
-                alt="<?= $advantages['background_image']['filename'] ?>">
+                <video autoplay="autoplay" loop="true" playsinline muted>
+                <source src="<?=$advantages['background_image']?>" type="video/mp4" />
+                </video>
+            <?php endif; ?>
+        </div>
+        <div class="advantages-content">
+            <div class="advantages_texts animate__animated animate__fadeInDown" data-wow-offset="0">
+                <p><?= $advantages['subheadline'] ?? ''?></p>
+                <h2><?= $advantages['headline'] ?? ''?></h2>
+            </div>
+
+            <?php if ($advantages['Advantage']) : ?>
+            <div class="adv_items">
+
+                <?php foreach ($advantages['Advantage'] as $advantage) : ?>
+                <div class="avd_item animate__animated animate__fadeInBottomRight" data-wow-offset="0">
+                    <?php if ($advantage['image']) : ?>
+                    <img src="<?= $advantage['image']['url']?>" alt="<?= $advantage['image']['filename'] ?>">
+                    <?php endif; ?>
+
+                    <p class="adv_info">
+                        <?= $advantage['description_image'] ?? ''?>
+                    </p>
+                </div>
+                <?php endforeach; ?>
+            </div>
             <?php endif; ?>
         </div>
 
-        <div class="advantages_texts animate__animated animate__fadeInDown" data-wow-offset="0">
-            <p><?= $advantages['subheadline'] ?? ''?></p>
-            <h2><?= $advantages['headline'] ?? ''?></h2>
-        </div>
-
-        <?php if ($advantages['Advantage']) : ?>
-        <div class="adv_items">
-
-            <?php foreach ($advantages['Advantage'] as $advantage) : ?>
-            <div class="avd_item animate__animated animate__fadeInBottomRight" data-wow-offset="0">
-                <?php if ($advantage['image']) : ?>
-                <img src="<?= $advantage['image']['url']?>" alt="<?= $advantage['image']['filename'] ?>">
-                <?php endif; ?>
-
-                <p class="adv_info">
-                    <?= $advantage['description_image'] ?? ''?>
-                </p>
-            </div>
-            <?php endforeach; ?>
-        </div>
-        <?php endif; ?>
     </section>
-    <section id="ordering" data-parallax="scroll" positionY="0px"
-        data-image-src="<?= $ordering['background_image']['url'] ?>">
-        <div class="ordering-headline animate__animated animate__fadeInLeftBig" data-wow-offset="0">
-            <h2><?= $ordering['headline'] ?? '' ?></h2>
-            <a href="javascript:;" class="btn" data-fancybox data-animation-duration="700" data-src="#callback">Оформить
-                заявку</a>
-        </div>
 
-        <?php if ($ordering['description_of_ordering_procedure']) : ?>
-        <div class="ordering-procedure animate__animated animate__fadeInTopRight" data-wow-offset="0">
-
-            <?php foreach ($ordering['description_of_ordering_procedure'] as $order) : ?>
-            <div class="order-item">
-
-                <?php if ($order['image']) : ?>
-                <img src="<?= $order['image']['url'] ?>" alt="<?= $order['image']['filename'] ?>">
-                <?php endif; ?>
-                <p><?= $order['headline'] ?></p>
-                <p><?= $order['description'] ?></p>
-            </div>
-
-            <?php endforeach; ?>
-        </div>
-        <?php endif; ?>
-    </section>
     <section class="promo-block">
 
         <?php if ($promo['block']) : ?>
@@ -175,9 +156,10 @@ $footer = get_field('footer', 'option');
         <?php endforeach;?>
         <?php endif;?>
     </section>
+
     <section id="сertificate_slider">
         <div class="container">
-            <h2>Наши сертификаты</h2>
+            <h2><?= $сertificate_slider['title'];?></h2>
             <div class="swiper-container сertificate_slider">
                 <div class="swiper-wrapper">
                     <?php if ($сertificate_slider['slider']) : ?>
@@ -234,17 +216,19 @@ $footer = get_field('footer', 'option');
             </div>
         </div>
     </section>
+
     <section id="quiz-form">
         <div class="container">
-            <h2>Продите тест за 1 минуту<br> и начём сотрудничесво с Вами</h2>
+            <h2>Пройдите тест и начём<br> сотрудничество с Вами</h2>
             <div id="quiz">
                 <div class="steps">
                     <div class="step-one active" datastep="1">
-                        <h3>Какую систему вы выбрали?</h3>
+                        <h3>Кем Вы являетесь?</h3>
                         <div class="variables">
-                            <div class="variable" data-value="SLIMLINE">SLIMLINE</div>
-                            <div class="variable" data-value="EASY">EASY</div>
-                            <div class="variable" data-value="FLAT MASK">FLAT MASK</div>
+                            <div class="variable" data-value="Розничный покупатель">Розничный покупатель</div>
+                            <div class="variable" data-value="Дизайнер">Дизайнер</div>
+                            <div class="variable" data-value="Дистрибьютор">Дистрибьютор</div>
+                            <div class="variable" data-value="Дилер">Дилер</div>
                         </div>
                     </div>
                     <div class="step-two" datastep="2">
@@ -254,34 +238,31 @@ $footer = get_field('footer', 'option');
                             <div class="variable" data-value="Нет">Нет</div>
                         </div>
                     </div>
-                    <div class="step-three" datastep="3">
-                        <h3>Вы являетесь?</h3>
+                    <!-- <div class="step-three" datastep="3">
+                        <h3>Какую систему вы выбрали?</h3>
                         <div class="variables">
-                            <div class="variable" data-value="подрядчик">Я подрядчик</div>
-                            <div class="variable" data-value="клиент">Я клиент</div>
-                            <div class="variable" data-value="дизайнер">Я дизайнер</div>
-                            <div class="variable" data-value="дистрибьютор">Я дистрибьютор</div>
+                            <div class="variable" data-value="SLIMLINE">SLIMLINE</div>
+                            <div class="variable" data-value="EASY">EASY</div>
                         </div>
-                    </div>
-                    <div class="step-four" datastep="4">
+                    </div> -->
+                    <div class="step-three" datastep="4">
                         <h3>Нам связаться с Вами через?</h3>
                         <div class="variables">
-                            <div class="variable" data-value="Telegram">Telegram</div>
                             <div class="variable" data-value="WhatsApp">WhatsApp</div>
                             <div class="variable" data-value="Звонок">Звонок</div>
                         </div>
                     </div>
-                    <div class="step-five" datastep="5">
-                        <h3>Оставьте ваши данные и мы свяжемся с Вами!</h3>
+                    <div class="step-four" datastep="5">
+                        <h3>Оставьте Ваши данные и мы свяжемся с Вами!</h3>
                         <div class="last-step-form">
                             <div class="fields">
                                 <div class="form-field">
                                     <label for="f-Name">Введите Ваше имя</label>
-                                    <input class="form-control" type="text" name="f-Name">
+                                    <input class="form-control" type="text" name="q-f-Name">
                                 </div>
                                 <div class="form-field">
                                     <label for="f-Phone">Введите Ваш телефон</label>
-                                    <input class="form-control" type="tel" name="f-Phone">
+                                    <input class="form-control" type="tel" name="q-f-Phone">
                                 </div>
                             </div>
                             <button>Отправить</button>
@@ -295,6 +276,7 @@ $footer = get_field('footer', 'option');
             </div>
         </div>
     </section>
+
     <section id="our-works">
         <div class="container">
             <h2><?= $our_works['title'];?></h2>
@@ -312,34 +294,65 @@ $footer = get_field('footer', 'option');
             </div>
         </div>
     </section>
+
+    <section id="ordering" data-parallax="scroll" positionY="0px"
+        data-image-src="<?= $ordering['background_image']['url'] ?>">
+        <div class="ordering-headline animate__animated animate__fadeInLeftBig" data-wow-offset="0">
+            <h2><?= $ordering['headline'] ?? '' ?></h2>
+            <a href="javascript:;" class="btn" data-fancybox data-animation-duration="700" data-src="#callback">Оформить
+                заявку</a>
+        </div>
+
+        <?php if ($ordering['description_of_ordering_procedure']) : ?>
+        <div class="ordering-procedure animate__animated animate__fadeInTopRight" data-wow-offset="0">
+
+            <?php foreach ($ordering['description_of_ordering_procedure'] as $order) : ?>
+            <div class="order-item">
+
+                <?php if ($order['image']) : ?>
+                <img src="<?= $order['image']['url'] ?>" alt="<?= $order['image']['filename'] ?>">
+                <?php endif; ?>
+                <p><?= $order['headline'] ?></p>
+                <p><?= $order['description'] ?></p>
+            </div>
+
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    </section>
+
     <section id="last-form">
         <div class="container">
-            <h2>Остались дополнительные вопросы?<br> Задайте нам и мы Вам перезвоним!</h2>
+            <h2>Остались вопросы?<br> Задайте их нам, и мы Вам перезвоним!</h2>
             <form>
                 <div class="row">
                     <div class="form-field">
-                        <label for="f-Name">Введите Ваше имя</label>
-                        <input class="form-control" type="text" name="f-Name">
+                        <label for="f-f-name">Введите Ваше имя</label>
+                        <input class="form-control" type="text" name="f-f-name">
                     </div>
                     <div class="form-field">
-                        <label for="f-Name">Введите Ваш email</label>
-                        <input class="form-control" type="email" name="f-Name">
+                        <label for="f-f-email">Введите Ваш email</label>
+                        <input class="form-control" type="email" name="f-f-email">
                     </div>
                     <div class="form-field">
-                        <label for="f-Name">Введите Ваше телефон</label>
-                        <input class="form-control" type="tel" name="f-Name">
+                        <label for="f-f-phone">Введите Ваш телефон</label>
+                        <input class="form-control" type="tel" name="f-f-phone">
                     </div>
                 </div>
                 <div class="row-textarea">
                     <div class="form-field">
-                        <label for="f-Name">Ваш вопрос</label>
-                        <textarea class="form-control" type="text" name="f-Name"></textarea>
+                        <label for="f-f-comment">Введите Ваш вопрос</label>
+                        <textarea class="form-control" type="text" name="f-f-comment"></textarea>
                     </div>
                 </div>
                 <button>Отправить</button>
             </form>
+            <div class="hidden-form">
+                <?= do_shortcode('[contact-form-7 id="297" title="Форма (подвал)"]')?>
+            </div>
         </div>
     </section>
+
     <div id="contacts">
         <div class="contacts-info">
             <? foreach($footer as $info): ?>
@@ -373,10 +386,10 @@ $footer = get_field('footer', 'option');
                     ?>
             <? endforeach; ?>
         </div>
-        <div class="map">
-            <iframe
+        <div class="map" style="height: 500px">
+            <!-- <iframe
                 src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab9f1121662192984f69e0c2646e8c1bfed76f35d530a97375b27f728cd3cdaf5&amp;source=constructor"
-                width="100%" height="500" frameborder="0"></iframe>
+                width="100%" height="500" frameborder="0"></iframe> -->
         </div>
 
     </div>
@@ -403,20 +416,40 @@ $footer = get_field('footer', 'option');
     <div style="display: none;" id="callback" class="animated-modal">
         <form>
             <div class="form-field">
-                <label for="f-Name">Введите Ваше имя</label>
-                <input class="form-control" type="text" name="f-Name">
+                <label for="m-f-Name">Введите Ваше имя</label>
+                <input class="form-control" type="text" name="m-f-Name">
             </div>
             <div class="form-field">
-                <label for="f-Name">Введите Ваш email</label>
-                <input class="form-control" type="email" name="f-Name">
+                <label for="m-f-Email">Введите Ваш email</label>
+                <input class="form-control" type="email" name="m-f-Email">
             </div>
             <div class="form-field">
-                <label for="f-Name">Введите Ваш телефон</label>
-                <input class="form-control" type="tel" name="f-Name">
+                <label for="m-f-Phone">Введите Ваш телефон</label>
+                <input class="form-control" type="tel" name="m-f-Phone">
             </div>
 
-            <button>Отпрвить</button>
+            <div class="btn" id="sendModalData">Отправить</div>
         </form>
+        <div class="hidden-form modal-hidden-form">
+            <?= do_shortcode('[contact-form-7 id="298" title="Форма модальное окно"]')?>
+        </div>
+    </div>
+
+    <div style="display: none;" id="success-form" class="animated-modal" data-fancybox>
+        <svg x="0px" y="0px" viewBox="0 0 507.2 507.2">
+            <circle style="fill:#32BA7C;" cx="253.6" cy="253.6" r="253.6" />
+            <path style="fill:#0AA06E;"
+                d="M188.8,368l130.4,130.4c108-28.8,188-127.2,188-244.8c0-2.4,0-4.8,0-7.2L404.8,152L188.8,368z" />
+
+            <path style="fill:#FFFFFF;" d="M260,310.4c11.2,11.2,11.2,30.4,0,41.6l-23.2,23.2c-11.2,11.2-30.4,11.2-41.6,0L93.6,272.8
+		c-11.2-11.2-11.2-30.4,0-41.6l23.2-23.2c11.2-11.2,30.4-11.2,41.6,0L260,310.4z" />
+            <path style="fill:#FFFFFF;" d="M348.8,133.6c11.2-11.2,30.4-11.2,41.6,0l23.2,23.2c11.2,11.2,11.2,30.4,0,41.6l-176,175.2
+		c-11.2,11.2-30.4,11.2-41.6,0l-23.2-23.2c-11.2-11.2-11.2-30.4,0-41.6L348.8,133.6z" />
+
+        </svg>
+        <h2>Спасибо! Наши менеджеры свяжутся с Вами!</h2>
+
+
     </div>
     <div class="loader">
         <div class="">
